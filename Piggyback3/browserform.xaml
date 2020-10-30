@@ -1,0 +1,82 @@
+<Window x:Class="ActivityBrowser.BrowserForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c="http://schemas.heffsoft.com.au/wpf"
+        Closing="Window_Closing" PreviewKeyDown="Window_PreviewKeyDown" Title="{StaticResource AppTitle}"
+        Height="768" Width="1280" WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Icon="/Piggyback3;component/Images/Piggyback.ico">
+  <FrameworkElement.Resources>
+    <ImageBrush x:Key="BackgroundImage"
+                ImageSource="pack://application:,,,/Piggyback3;component/Images/BlueBackground.png" TileMode="Tile"
+                Stretch="None" ViewboxUnits="Absolute" Viewbox="0,0,128,128" ViewportUnits="Absolute"
+                Viewport="0,0,128,128"/>
+    <HierarchicalDataTemplate x:Key="ExerciseTemplate" ItemsSource="{Binding Children}">
+      <StackPanel Orientation="Horizontal" Margin="1" ToolTip="{Binding Path=Description}">
+        <Image Source="{Binding Path=Image}"/>
+        <TextBlock Margin="2,0,0,0" HorizontalAlignment="Center" Text="{Binding Path=Title}"/>
+      </StackPanel>
+    </HierarchicalDataTemplate>
+  </FrameworkElement.Resources>
+  <DockPanel LastChildFill="true">
+    <Menu DockPanel.Dock="Top">
+      <MenuItem Header="_File">
+        <MenuItem Name="ThemeMenu" Header="Theme" Visibility="Collapsed">
+          <MenuItem Click="ThemeItem_Click" Header="Default" IsChecked="true"/>
+          <Separator/>
+          <MenuItem Click="ThemeItem_Click" Header="Bureau Black" Tag="BureauBlack"/>
+          <MenuItem Click="ThemeItem_Click" Header="Bureau Blue" Tag="BureauBlue"/>
+          <MenuItem Click="ThemeItem_Click" Header="Expression Dark" Tag="ExpressionDark"/>
+          <MenuItem Click="ThemeItem_Click" Header="Expression Light" Tag="ExpressionLight"/>
+          <MenuItem Click="ThemeItem_Click" Header="Shiny Blue" Tag="ShinyBlue"/>
+          <MenuItem Click="ThemeItem_Click" Header="ShinyRed" Tag="ShinyRed"/>
+          <MenuItem Click="ThemeItem_Click" Header="Whistler Blue" Tag="WhistlerBlue"/>
+        </MenuItem>
+        <MenuItem Click="ActivateItem_Click" Name="activateMenu" Header="Activate Piggyback" Tag="1">
+          <MenuItem.Icon>
+            <Image Source="/Piggyback3;component/Images/Lock.ico"/>
+          </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Click="ActivateItem_Click" Name="manualActivateMenu" Header="Manually Activate Piggyback" Tag="2">
+          <MenuItem.Icon>
+            <Image Source="/Piggyback3;component/Images/Lock.ico"/>
+          </MenuItem.Icon>
+        </MenuItem>
+        <Separator/>
+        <MenuItem Click="ExitItem_Click" Header="Exit Piggyback"/>
+      </MenuItem>
+      <MenuItem Name="beatMenu" Header="_Beat">
+        <MenuItem Click="beatMenuItem_Click" Name="offBeatMenuItem" Header="Off" IsChecked="true" Tag="0"/>
+        <MenuItem Click="beatMenuItem_Click" Header="60bpm" Tag="1000"/>
+        <MenuItem Click="beatMenuItem_Click" Header="120bpm" Tag="500"/>
+      </MenuItem>
+      <MenuItem Header="_Help">
+        <MenuItem Click="aboutMenu_Click" Name="aboutMenu" Header="About Piggyback"/>
+        <MenuItem Click="manualMenu_Click" Name="manualMenu" Header="Piggyback Manual"/>
+      </MenuItem>
+    </Menu>
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition MinWidth="128" MaxWidth="512" Width="256"/>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition/>
+      </Grid.ColumnDefinitions>
+      <GridSplitter Name="gridSplitter1" Height="Auto" HorizontalAlignment="Stretch" Margin="0"
+                    VerticalAlignment="Stretch" Width="4" ResizeDirection="Columns" Grid.Column="1"
+                    HorizontalContentAlignment="Left"/>
+      <DockPanel Name="dockPanel">
+        <c:Accordion Name="ActivityPanel" Margin="2" IsEnabled="false"/>
+      </DockPanel>
+      <TabControl Name="tabControl1" Grid.Column="2" Margin="2">
+        <TabItem Name="InstructionTab" Header="Instruction Sheet">
+          <DocumentViewer Name="InstructionViewer" Background="{StaticResource BackgroundImage}" Tag="RH loves AF"/>
+        </TabItem>
+        <TabItem Name="ActivityTab" Header="Activity">
+          <Grid Name="ActivityGrid"/>
+        </TabItem>
+        <TabItem Name="RecordingTab" Header="Recording Sheet">
+          <DocumentViewer Name="RecordingViewer" Background="{StaticResource BackgroundImage}"/>
+        </TabItem>
+      </TabControl>
+    </Grid>
+  </DockPanel>
+</Window>
