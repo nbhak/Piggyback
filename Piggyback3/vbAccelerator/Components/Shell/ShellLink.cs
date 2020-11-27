@@ -376,8 +376,8 @@ namespace vbAccelerator.Components.Shell
     [ComImport]
     private class CShellLink
     {
-      [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-      public extern CShellLink();
+      //[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
+      //public extern CShellLink();
     }
 
     private enum EShellLinkGP : uint

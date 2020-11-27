@@ -104,15 +104,15 @@ namespace ActivityBrowser
         for (num1 = (short) 0; num1 < (short) 227; ++num1)
         {
           uint num2 = (uint) ((int) this._mt[(int) num1] & int.MinValue | (int) this._mt[(int) num1 + 1] & int.MaxValue);
-          this._mt[(int) num1] = this._mt[(int) num1 + 397] ^ num2 >> 1 ^ MersenneTwister._mag01[(IntPtr) (num2 & 1U)];
+          this._mt[(int) num1] = this._mt[(int) num1 + 397] ^ num2 >> 1 ^ MersenneTwister._mag01[(num2 & 1U)];
         }
         for (; num1 < (short) 623; ++num1)
         {
           uint num2 = (uint) ((int) this._mt[(int) num1] & int.MinValue | (int) this._mt[(int) num1 + 1] & int.MaxValue);
-          this._mt[(int) num1] = this._mt[(int) num1 - 227] ^ num2 >> 1 ^ MersenneTwister._mag01[(IntPtr) (num2 & 1U)];
+          this._mt[(int) num1] = this._mt[(int) num1 - 227] ^ num2 >> 1 ^ MersenneTwister._mag01[(num2 & 1U)];
         }
         uint num3 = (uint) ((int) this._mt[623] & int.MinValue | (int) this._mt[0] & int.MaxValue);
-        this._mt[623] = this._mt[396] ^ num3 >> 1 ^ MersenneTwister._mag01[(IntPtr) (num3 & 1U)];
+        this._mt[623] = this._mt[396] ^ num3 >> 1 ^ MersenneTwister._mag01[(num3 & 1U)];
         this._mti = (short) 0;
       }
       uint y1 = this._mt[(int) this._mti++];

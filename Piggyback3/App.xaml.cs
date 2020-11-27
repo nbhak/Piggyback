@@ -14,20 +14,7 @@ namespace ActivityBrowser
   [GeneratedCode("PresentationBuildTasks", "4.0.0.0")]
   public partial class App : Application
   {
-    private bool _contentLoaded;
-
-    [DebuggerNonUserCode]
-    public void InitializeComponent()
-    {
-      if (this._contentLoaded)
-        return;
-      this._contentLoaded = true;
-      this.StartupUri = new Uri("BrowserForm.xaml", UriKind.Relative);
-      Application.LoadComponent((object) this, new Uri("/Piggyback3;component/app.xaml", UriKind.Relative));
-    }
-
     [STAThread]
-    [DebuggerNonUserCode]
     public static void Main()
     {
       App app = new App();

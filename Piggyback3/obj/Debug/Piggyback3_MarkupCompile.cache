@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-C:\Users\nathanbhak\Desktop\Piggyback3\obj\Debug\
+C:\Users\Glen\Source\Repos\nbhak\Piggyback\Piggyback3\obj\Debug\
 ActivityBrowser
 none
 false
@@ -13,8 +13,8 @@ DEBUG;TRACE
 11-1502613580
 
 181521934218
-12-660556182
+12-1766447679
 app.xaml;browserform.xaml;diagnosticdialog.xaml;secretabout.xaml;themes\bureaublack.xaml;themes\bureaublue.xaml;themes\expressiondark.xaml;themes\expressionlight.xaml;themes\shinyblue.xaml;themes\shinyred.xaml;themes\whistlerblue.xaml;
 
-True
+False
 

@@ -92,7 +92,7 @@ namespace ActivityBrowser
         string className,
         string logMessage)
       {
-        Log.Write((LogLevel) logLevel, moduleName, className, logMessage);
+        ActivityBrowser.Log.Write((LogLevel) logLevel, moduleName, className, logMessage);
       }
 
       public void ReportException(string moduleName, string className, Exception e)
