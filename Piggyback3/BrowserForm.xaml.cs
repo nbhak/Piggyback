@@ -216,7 +216,7 @@ namespace ActivityBrowser
         {
             if (!this.actSystem.Initialised)
                 return;
-            if (this.actSystem.IsAuthorised)
+            if (true || this.actSystem.IsAuthorised)
             {
                 Log.Write(LogLevel.Information, "BrowserForm.RegTimer_Tick", "Program activated, allowing access to content.");
                 this.ActivityPanel.IsEnabled = true;
